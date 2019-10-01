@@ -6530,33 +6530,27 @@ const {
 
 const {
   makeSchemaAndPlugin
-} = __webpack_require__(/*! postgraphile-apollo-server */ "postgraphile-apollo-server"); // const { makeAddInflectorsPlugin } = require("graphile-utils");
+} = __webpack_require__(/*! postgraphile-apollo-server */ "postgraphile-apollo-server");
 
+const {
+  makeExtendSchemaPlugin,
+  gql
+} = __webpack_require__(/*! graphile-utils */ "graphile-utils");
 
 const PgSimplifyInflectorPlugin = __webpack_require__(/*! @graphile-contrib/pg-simplify-inflector */ "@graphile-contrib/pg-simplify-inflector");
 
 const pgPool = new pg.Pool({
   connectionString: process.env.DATABASE_URL
-}); // const x = makeAddInflectorsPlugin(
-//   {
-//     createUserAccountType(typeName: string) {
-//       return this.upperCamelCase(`${typeName}-change-set`);
-//     },
-//   },
-//   /* Passing true here allows the plugin to overwrite
-//    * existing inflectors.
-//    */
-//   true
-// );
+});
 
 async function main() {
   const {
     schema,
     plugin
-  } = await makeSchemaAndPlugin(pgPool, "public", // PostgreSQL schema to use
-  {
+  } = await makeSchemaAndPlugin(pgPool, "public", {
     // PostGraphile options, see:
     // https://www.graphile.org/postgraphile/usage-library/
+    dynamicJson: true,
     appendPlugins: [PgSimplifyInflectorPlugin]
   });
   const server = new ApolloServer({
@@ -6673,6 +6667,17 @@ module.exports = require("events");
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
+
+/***/ }),
+
+/***/ "graphile-utils":
+/*!*********************************!*\
+  !*** external "graphile-utils" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("graphile-utils");
 
 /***/ }),
 

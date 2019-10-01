@@ -10,4 +10,6 @@ exports.up = knex => {
 
 exports.down = knex => {
   return knex.schema.dropTable("UserAccount");
+  return knex.schema.dropTable("AccountSettings");
+  return knex.schema.dropTable("NotificationPreferences");
 };
