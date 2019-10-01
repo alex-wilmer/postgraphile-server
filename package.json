@@ -17,6 +17,7 @@
     "objection": "^1.6.11",
     "pg-native": "^3.0.0",
     "postgraphile": "^4.4.4",
-    "postgraphile-apollo-server": "^0.1.1"
+    "postgraphile-apollo-server": "^0.1.1",
+    "postgraphile-plugin-nested-mutations": "^1.0.1"
   }
 }

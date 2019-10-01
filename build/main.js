@@ -6539,6 +6539,8 @@ const {
 
 const PgSimplifyInflectorPlugin = __webpack_require__(/*! @graphile-contrib/pg-simplify-inflector */ "@graphile-contrib/pg-simplify-inflector");
 
+const PostGraphileNestedMutations = __webpack_require__(/*! postgraphile-plugin-nested-mutations */ "postgraphile-plugin-nested-mutations");
+
 const pgPool = new pg.Pool({
   connectionString: process.env.DATABASE_URL
 });
@@ -6551,7 +6553,7 @@ async function main() {
     // PostGraphile options, see:
     // https://www.graphile.org/postgraphile/usage-library/
     dynamicJson: true,
-    appendPlugins: [PgSimplifyInflectorPlugin]
+    appendPlugins: [PgSimplifyInflectorPlugin, PostGraphileNestedMutations]
   });
   const server = new ApolloServer({
     schema,
@@ -6722,6 +6724,17 @@ module.exports = require("pg-native");
 /***/ (function(module, exports) {
 
 module.exports = require("postgraphile-apollo-server");
+
+/***/ }),
+
+/***/ "postgraphile-plugin-nested-mutations":
+/*!*******************************************************!*\
+  !*** external "postgraphile-plugin-nested-mutations" ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("postgraphile-plugin-nested-mutations");
 
 /***/ }),
 

@@ -5,6 +5,7 @@ const { ApolloServer } = require("apollo-server");
 const { makeSchemaAndPlugin } = require("postgraphile-apollo-server");
 const { makeExtendSchemaPlugin, gql } = require("graphile-utils");
 const PgSimplifyInflectorPlugin = require("@graphile-contrib/pg-simplify-inflector");
+const PostGraphileNestedMutations = require('postgraphile-plugin-nested-mutations');
 
 const pgPool = new pg.Pool({
   connectionString: process.env.DATABASE_URL
@@ -20,6 +21,7 @@ async function main() {
       dynamicJson: true,
       appendPlugins: [
         PgSimplifyInflectorPlugin, 
+        PostGraphileNestedMutations,
       ],
       
     }
