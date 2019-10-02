@@ -1,4 +1,4 @@
-let E = ["EMAIL", "IN_APP_PROMPT", "PUSH", "SMS"];
+const NOTIFICATION_CHANNEL = ["EMAIL", "IN_APP_PROMPT", "PUSH", "SMS"];
 
 module.exports = knex =>
   knex.schema
@@ -32,8 +32,8 @@ module.exports = knex =>
         .unsigned()
         .primary();
 
-      t.enu("criticalAlerts", E).notNull();
-      t.enu("leads", E).notNull();
+      t.enu("criticalAlerts", NOTIFICATION_CHANNEL).notNull();
+      t.enu("leads", NOTIFICATION_CHANNEL).notNull();
 
       t.integer("accountSettingsId")
         .unsigned()
