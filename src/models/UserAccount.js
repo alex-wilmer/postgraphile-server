@@ -26,6 +26,7 @@ module.exports = knex =>
         .unsigned()
         .notNull();
       t.foreign("userAccountId").references("UserAccount.id");
+      t.unique("userAccountId")
     })
     .createTable("NotificationPreferences", t => {
       t.increments("id")
@@ -39,4 +40,5 @@ module.exports = knex =>
         .unsigned()
         .notNull();
       t.foreign("accountSettingsId").references("AccountSettings.id");
+      t.unique("accountSettingsId")
     });
