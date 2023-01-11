@@ -13,7 +13,7 @@
     "backpack-core": "^0.8.4",
     "dotenv": "^8.1.0",
     "graphile-utils": "^4.4.5",
-    "knex": "^0.19.4",
+    "knex": "^2.4.0",
     "objection": "^1.6.11",
     "pg-native": "^3.0.0",
     "postgraphile": "^4.4.4",
